@@ -83,7 +83,7 @@ if(session.getAttribute("id").equals("admin"))
 	<% 
 	String write_day=rs.getString("indate").substring(8,10) ; 
 	int w_day = Integer.parseInt(write_day);
-    if(w_day+2 > c_day )
+    if(w_day +2> c_day )
     {%><td width="100px"> <%= rs.getString(2)%><td width="300px"> <%= rs.getString(3) %> <img src="new.PNG"> </td> 
     <% } else
 	{%>
@@ -104,9 +104,9 @@ if(session.getAttribute("id").equals("admin"))
 	<% 
 	String write_day=rs3.getString("indate").substring(8,10) ; 
 	int w_day = Integer.parseInt(write_day);
-    if(w_day+2 > c_day )
+    if(w_day +2> c_day )
     {%><td width="100px"> <%= rs3.getString(2)%><td width="300px"> <%= rs3.getString(3) %> <img src="new.PNG"> </td> 
-    <% } else
+    <% System.out.println("À¸¾Æ¾Æ¾Ó"); } else
 	{%>
     	<td width="100px"> <%= rs3.getString(2)%><td width="300px"> <%= rs3.getString(3) %>  </td> 
     <% }%>
@@ -131,7 +131,7 @@ else
 	<% 
 	String write_day=rs.getString("indate").substring(8,10) ; 
 	int w_day = Integer.parseInt(write_day);
-	if(w_day+2 > c_day )
+	if(w_day +2> c_day )
     {%><td width="100px"> <%= rs.getString(2)%><td width="300px"> <%= rs.getString(3) %> <img src="new.PNG"> </td> 
     <% } else
 	{%>
@@ -152,7 +152,7 @@ else
         <% 
 	String write_day=rs3.getString("indate").substring(8,10) ; 
 	int w_day = Integer.parseInt(write_day);
-    if(w_day+2 > c_day )
+    if(w_day+2> c_day )
     {%><td width="100px"> <%= rs3.getString(2)%><td width="300px"> <%= rs3.getString(3) %> <img src="new.PNG"> </td> 
     <% } else
 	{%>
