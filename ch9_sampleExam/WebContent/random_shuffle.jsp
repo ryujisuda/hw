@@ -117,7 +117,8 @@ for(int k =0; k <5 ; k++)
 <body>
 
 <div id="ViewTimer"></div>
-
+<br><br>
+<button type = "button" onClick="location.href='Exam_Main.jsp'">메인으로 돌아가기</button>
 <br><br>
 <form name = "random_suffle" action="random_ok.jsp" method="post">
 
