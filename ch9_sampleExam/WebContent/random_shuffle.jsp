@@ -81,8 +81,7 @@ conn=DriverManager.getConnection(url,"jisu","jisu");
 pstmt = 
 conn.prepareStatement("SELECT * FROM QUIZ");
 rs=pstmt.executeQuery();  // 불러온 레코드를 rs 에 저장
-
-String[][] bg =new String[10][8];
+String[][] bg =new String[20][8];
 int a=0;
 while(rs.next()){
 	bg[a][0]=Integer.toString(rs.getInt("Q_NUM"));
@@ -100,14 +99,14 @@ while(rs.next()){
 Random ran2 = new Random();
 Date date = new Date();
 
-boolean [] visit={false,false,false,false,false,false,false,false,false,false};
-int [] arr_munje_num={0,0,0,0,0,0,0,0,0,0};
+boolean [] visit={false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false};
+int [] arr_munje_num={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 for(int k =0; k <5 ; k++)
 {
-	int n= ran2.nextInt(10);
+	int n= ran2.nextInt(a);
 	while(visit[n])
 	{
-		n=ran2.nextInt(10);
+		n=ran2.nextInt(a);
 	}
 	visit[n]=true;
 	arr_munje_num[k]=n;
@@ -133,10 +132,10 @@ for(int j = 0 ; j<5 ; j++)
 %>
 
 	문제<%=bg[arr_munje_num[j]][0] %>&nbsp; <%= bg[arr_munje_num[j]][1] %><br>&nbsp;&nbsp;
-	<span><input type="radio" name="<%= j %>" value="<%=show[0]+'!'+bg[arr_munje_num[j]][7]%>" checked="checked"><%=show[0] %> &nbsp;&nbsp;</span>
-	<span><input type="radio" name="<%= j %>" value="<%=show[1]+'!'+bg[arr_munje_num[j]][7]%>"><%=show[1] %> &nbsp;&nbsp;</span>
-	<span><input type="radio" name="<%= j %>" value="<%=show[2]+'!'+bg[arr_munje_num[j]][7]%>"><%=show[2] %> &nbsp;&nbsp;</span>
-	<span><input type="radio" name="<%= j %>" value="<%=show[3]+'!'+bg[arr_munje_num[j]][7]%>"><%=show[3] %> &nbsp;&nbsp;</span>
+	<span><input type="radio" name="<%= j %>" value="<%=bg[arr_munje_num[j]][0]+'!'+show[0]+'!'+bg[arr_munje_num[j]][7]%>" checked="checked"><%=show[0] %> &nbsp;&nbsp;</span>
+	<span><input type="radio" name="<%= j %>" value="<%=bg[arr_munje_num[j]][0]+'!'+show[1]+'!'+bg[arr_munje_num[j]][7]%>"><%=show[1] %> &nbsp;&nbsp;</span>
+	<span><input type="radio" name="<%= j %>" value="<%=bg[arr_munje_num[j]][0]+'!'+show[2]+'!'+bg[arr_munje_num[j]][7]%>"><%=show[2] %> &nbsp;&nbsp;</span>
+	<span><input type="radio" name="<%= j %>" value="<%=bg[arr_munje_num[j]][0]+'!'+show[3]+'!'+bg[arr_munje_num[j]][7]%>"><%=show[3] %> &nbsp;&nbsp;</span>
 	
 	<br><br>
 <%
@@ -145,7 +144,7 @@ for(int j = 0 ; j<5 ; j++)
 }
 %>
 
-<input type="submit" value="채점하기">
+<input type="submit" value="채점하기" >
 </form>
 </body>
 </html>

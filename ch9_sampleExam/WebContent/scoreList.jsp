@@ -21,7 +21,7 @@ String url="jdbc:oracle:thin:@localhost:1521:orcl";
 Class.forName(driver);  
 conn=DriverManager.getConnection(url,"jisu","jisu");
 pstmt = 
-conn.prepareStatement("SELECT * FROM SCORE");
+conn.prepareStatement("SELECT * FROM SCORE ORDER BY Q_INDATE DESC");
 rs=pstmt.executeQuery();  // 불러온 레코드를 rs 에 저장
 
 %>
@@ -46,6 +46,9 @@ rs=pstmt.executeQuery();  // 불러온 레코드를 rs 에 저장
 	
 	%>    
   </table>
+  <br>
+  <br>
+  <button type="button" onClick="location.href='Exam_Main.jsp'">메인으로</button>
 </center>
 </body>
 </html>
