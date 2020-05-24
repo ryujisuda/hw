@@ -23,8 +23,9 @@ rs2=pstmt2.executeQuery();
 int num=0;
 while(rs2.next())
 {
-	num++;
+	num=Math.max(rs2.getInt("Q_NUM"),num);
 }
+
 
 Connection conn=null;
 PreparedStatement pstmt=null;
@@ -35,7 +36,7 @@ Class.forName(driver);
 conn=DriverManager.getConnection(url,"jisu","jisu");
 pstmt = 
 conn.prepareStatement("INSERT INTO QUIZ(Q_NUM,Q_QUESTION,Q_TYPE,Q_EX1,Q_EX2,Q_EX3,Q_EX4,Q_ANSWER) VALUES (?,?,?,?,?,?,?,?)");
-System.out.println(num);
+
 pstmt.setString(1,Integer.toString(num+1));
 pstmt.setString(2,request.getParameter("Q_QUESTION"));
 pstmt.setString(3,request.getParameter("Q_TYPE"));
